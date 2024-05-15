@@ -1,0 +1,27 @@
+<div *ngFor="let card of cards">
+    <span>
+        Type: {{ card.types[0] }}
+    </span>
+    <br>
+    <span>
+        Name: {{ card.name }}
+    </span>
+    <br>
+    <span>
+        Custo de mana: {{ card.manaCost }}
+    </span>
+    <br>
+    <span>
+        Cor: {{ card.colorIdentity }}
+    </span>
+    <br>
+    <span>
+        Descrição: {{ card.text }}
+    </span>
+    <br>
+    <img [src]="card.imageUrl" alt="Card Image">
+    <br>
+    <br>
+    <br>
+    <br>
+</div>

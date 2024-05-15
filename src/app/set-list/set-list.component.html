@@ -1,0 +1,5 @@
+<div *ngFor="let set of sets">
+    <button (click)="onSetClick(set.code)">
+        {{ set.name }}, {{ set.block }}, {{ set.releaseDate }}
+    </button>
+</div>

@@ -1,0 +1,14 @@
+<div>
+  <label for="name">Name:</label>
+  <input type="text" id="name" [(ngModel)]="name">
+</div>
+<div>
+  <label for="block">Block:</label>
+  <select id="block" [(ngModel)]="block">
+    <option value="">Select Block</option>
+    <option value="Zendikar">Zendikar</option>
+    <option value="Ixalan">Ixalan</option>
+    <option value="Amonkhet">Amonkhet</option>
+  </select>
+</div>
+<button (click)="searchSets()">Search</button>
