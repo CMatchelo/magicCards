@@ -1,12 +1,19 @@
 <span *ngIf="hasError" class="text-red-700 top-20 relative">Erro na requisição. Por favor tente novamente.</span>
+
 <div class="flex flex-wrap w-full h-full">
-    <div *ngFor="let set of sets" class="w-full sm:w-1/2 md:w-1/3 lg:w-1/6 p-2 mt-20" (click)="onSetClick(set.code)">
-        <div
-            class="p-4 h-full border border-gray-700 rounded-md flex flex-col shadow-md transform transition duration-300 ease-in-out hover:scale-105">
-            <span class="text-2xl">{{ set.name }}</span>
-            <strong *ngIf="set && set.block">{{ set.block }}</strong>
-            <strong *ngIf="!set || !set.block">Bloco não informado</strong>
-            <span class="self-end">{{ set.releaseDate }}</span>
+    <div *ngIf="sets.length > 0" class="mt-20">
+        <span>Selecione um para abrir seu pack e ver suas cartas</span>
+    </div>
+    <div class="flex flex-wrap w-full h-full">
+        <div *ngFor="let set of sets" class="w-full sm:w-1/2 md:w-1/3 lg:w-1/6 p-2"
+            (click)="onSetClick(set.code)">
+            <div
+                class="p-4 h-full border border-gray-700 rounded-md flex flex-col shadow-md transform transition duration-300 ease-in-out hover:scale-105">
+                <span class="text-2xl">{{ set.name }}</span>
+                <strong *ngIf="set && set.block">{{ set.block }}</strong>
+                <strong *ngIf="!set || !set.block">Bloco não informado</strong>
+                <span class="self-end">{{ set.releaseDate }}</span>
+            </div>
         </div>
     </div>
 </div>

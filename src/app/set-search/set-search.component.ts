@@ -17,7 +17,7 @@ export default class SetSearchComponent {
   @Output() cardsLoaded = new EventEmitter<any[]>();
   @Output() isLoading = new EventEmitter();
   name: string = '';
-  block: string = '';
+  block: string = 'Amonkhet';
   hasError: boolean = false;
 
   constructor(private http: HttpClient) {}

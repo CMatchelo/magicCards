@@ -2,7 +2,9 @@
     <app-set-search (setsLoaded)="onSetsLoaded($event)" (cardsLoaded)="onCardsLoaded($event)" (isLoading)="onSendRequest($event)" class="w-full h-3 fixed z-50"></app-set-search>
     <app-set-list [sets]="loadedSets" (cardsLoaded)="onCardsLoaded($event)" (setsLoaded)="onSetsLoaded($event)"(isLoading)="onSendRequest($event)" ></app-set-list>
     <app-display-cards [cards]="loadedCards"></app-display-cards>
-    <div *ngIf="isLoading" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+    <div *ngIf="isLoading" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+        <span>Abrindo seus packs, por favor aguarde</span>
+        <span>Isso pode levar alguns segundos</span>
         <img src="./../assets/loadingGif.gif">
     </div>
 </div>
