@@ -1,14 +1,24 @@
-<div>
-  <label for="name">Name:</label>
-  <input type="text" id="name" [(ngModel)]="name">
+<div class="w-full flex bg-gray-800 bg-opacity-100 px-5 md:px-10 py-5 text-white items-center">
+  <div class="mr-3 md:mr-8">
+    <label for="name" class="mr-5 hidden md:inline">Nome:</label>
+    <input type="text" id="name" placeholder="Nome da coleção" [(ngModel)]="name" class="text-black px-2 py-1 rounded-md w-28 md:w-60">
+  </div>
+  <div class="mr-3 md:mr-8">
+    <label for="block" class="mr-5 hidden md:inline">Bloco da coleção:</label>
+    <select id="block" [(ngModel)]="block" class="text-black p-1">
+      <option value="Amonkhet" selected>Amonkhet</option>
+      <option value="Ixalan">Ixalan</option>
+      <option value="Zendikar">Zendikar</option>
+      <option value="Ravnica">Ravnica</option>
+      <option value="Onslaught">Onslaught</option>
+    </select>
+  </div>
+  <button class="bg-red-700 px-4 py-1 rounded-md hover:bg-red-900 ml-auto flex items-center" (click)="searchSets()">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+    </svg>
+    <span class="hidden md:inline">Buscar</span>
+  </button>
 </div>
-<div>
-  <label for="block">Block:</label>
-  <select id="block" [(ngModel)]="block">
-    <option value="">Select Block</option>
-    <option value="Zendikar">Zendikar</option>
-    <option value="Ixalan">Ixalan</option>
-    <option value="Amonkhet">Amonkhet</option>
-  </select>
-</div>
-<button (click)="searchSets()">Search</button>
+<span *ngIf="hasError" class="text-red-700">Erro na requisição, por favor tente novamente.</span>
+

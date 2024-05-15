@@ -1,27 +1,29 @@
-<div *ngFor="let card of cards">
-    <span>
-        Type: {{ card.types[0] }}
-    </span>
-    <br>
-    <span>
-        Name: {{ card.name }}
-    </span>
-    <br>
-    <span>
-        Custo de mana: {{ card.manaCost }}
-    </span>
-    <br>
-    <span>
-        Cor: {{ card.colorIdentity }}
-    </span>
-    <br>
-    <span>
-        Descrição: {{ card.text }}
-    </span>
-    <br>
-    <img [src]="card.imageUrl" alt="Card Image">
-    <br>
-    <br>
-    <br>
-    <br>
+<div class="flex flex-wrap w-full h-full">
+    <div *ngFor="let card of cards" class="flex flex-row w-full md:w-1/3 lg:w-1/4 p-2 mt-20">
+        <div
+            class="p-4 w-full border border-gray-700 rounded-md flex flex-col shadow-md">
+            <div class="w-full flex justify-center">
+                <img class="w-44 h-auto" *ngIf="card && card.imageUrl" [src]="card.imageUrl" alt="Card Image">
+                <img class="w-44 h-auto" *ngIf="!card || !card.imageUrl" src="./../../assets/Magic_card_back.webp"
+                    alt="Card Image">
+            </div>
+            <div class="w-full mt-3">
+                <strong>Nome: </strong>
+                <span>{{ card.name }}</span>
+                <br>
+                <strong>Custo de mana: </strong>
+                <span>{{ card.manaCost }}</span>
+                <br>
+                <div class="flex flex-row">
+                    <strong>Cor: </strong>
+                    <img class="w-5" *ngIf="card.colorIdentity == 'U'" src="./../../assets/UColor.webp">
+                    <img class="w-5" *ngIf="card.colorIdentity == 'R'" src="./../../assets/RColor.webp">
+                    <img class="w-5" *ngIf="card.colorIdentity == 'G'" src="./../../assets/GColor.webp.png">
+                    <img class="w-5" *ngIf="card.colorIdentity == 'B'" src="./../../assets/BColor.webp">
+                    <span *ngIf="card.colorIdentity == 'W'">W</span>
+                </div>
+                <span>{{ card.text }}</span>
+            </div>
+        </div>
+    </div>
 </div>
